@@ -1,7 +1,12 @@
 import "./../styles/home.css"
 import LocalShippingOutlined from '@mui/icons-material/LocalShippingOutlined';
 import SearchIcon from '@mui/icons-material/Search';
+import FolderOpenOutlinedIcon from '@mui/icons-material/FolderOpenOutlined';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import WarningAmberOutlinedIcon from '@mui/icons-material/WarningAmberOutlined';
+import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import logo from "./../assets/DUMFlow_logo_transparent.png"
+import StatsOverview from "../components/StatsOverview";
 
 const Home = () => {
   return (
@@ -25,6 +30,13 @@ const Home = () => {
                 </div>
 
                 <div className="boder-bottom"></div>
+            </div>
+
+            <div className="stats-grid">
+                <StatsOverview title={"Total Dossiers"} icon={<FolderOpenOutlinedIcon/>} color={"white"}/>
+                <StatsOverview title={"En cours"} icon={<AccessTimeOutlinedIcon/>} color={"blue"}/>
+                <StatsOverview title={"Urgents"} icon={<WarningAmberOutlinedIcon/>} color={"red"}/>
+                <StatsOverview title={"Validés"} icon={<Inventory2OutlinedIcon/>} color={"green"}/>
             </div>
         </div>
     </>

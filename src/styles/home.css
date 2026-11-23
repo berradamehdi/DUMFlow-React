@@ -40,7 +40,7 @@
     border-radius: 20px;
     padding: 5px 12px;
     font-family: var(--font-sans);
-    font-size: 12px;
+    font-size: var(--fs-badge);
     display: flex;
     align-items: center;
     gap: 5px;
@@ -57,7 +57,7 @@
 }
 
 .header-title > .desc-logo {
-    font-size: 12px;
+    font-size: var(--fs-badge);
     font-family: var(--font-sans);
     color: var(--text-muted);
     font-weight: var(--fw-bold);
@@ -97,3 +97,14 @@
 }
 
 /* -- stats-grid -- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+}
+
+@media (max-width:767px) {
+    .stats-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
