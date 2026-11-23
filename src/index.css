@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+
+    /* ===== الخطوط (Font Families) ===== */
+    --font-sans: "Plus Jakarta Sans", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+    /* ===== الألوان (Color Palette) ===== */
+    --bg-canvas: #030408;          /* الخلفية الرئيسية السوداء الداكنة */
+    --bg-surface: #0a0d16;         /* خلفية البطاقات والحاويات */
+    --bg-surface-elevated: #111625;/* خلفية العناصر التفاعلية والحقول */
+    --bg-hover: #171e33;           /* لون التحويم (Hover) */
+
+    --accent-blue: #0088ff;        /* الأزرق النيون الأساسي (حالة عادية / إجراء رئيسي) */
+    --accent-blue-soft: rgba(0, 136, 255, 0.14);
+    --accent-blue-border: rgba(0, 136, 255, 0.45);
+
+    --accent-red: #ff1e42;         /* الأحمر النيون (مستعجل / Urgent / تنبيه) */
+    --accent-red-soft: rgba(255, 30, 66, 0.14);
+    --accent-red-border: rgba(255, 30, 66, 0.45);
+
+    --text-primary: #f4f7ff;       /* النص الأساسي الواضح */
+    --text-secondary: #9aa6c2;     /* النص الثانوي والوصف */
+    --text-muted: #5f6b8a;         /* التسميات البسيطة والـ Placeholders */
+
+    --border-subtle: rgba(255, 255, 255, 0.08);
+
+    /* ===== قياسات النصوص المتجاوبة (Fluid Typography Scale) ===== */
+    --fs-page-title: clamp(1.35rem, 1.1rem + 1.2vw, 2rem);      /* عنوان التطبيق الرئيسي */
+    --fs-section-title: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); /* عناوين الأقسام */
+    --fs-card-title: clamp(0.95rem, 0.9rem + 0.25vw, 1.0625rem); /* عنوان المهمة / الملف */
+    --fs-body: clamp(0.875rem, 0.84rem + 0.18vw, 0.975rem);     /* النص العادي والملاحظات */
+    --fs-code: clamp(0.8125rem, 0.78rem + 0.15vw, 0.9rem);      /* أرقام DUM / BL / Code SH */
+    --fs-badge: clamp(0.7rem, 0.68rem + 0.1vw, 0.75rem);         /* الشارات (Badges) والحالة */
+    --fs-micro: clamp(0.6875rem, 0.66rem + 0.08vw, 0.725rem);    /* التواريخ والتلميحات الصغيرة */
+
+    /* ===== أوزان وتباعد الخطوط (Weights & Line Heights) ===== */
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    --lh-tight: 1.2;
+    --lh-snug: 1.35;
+    --lh-normal: 1.55;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-canvas);
+    min-height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}

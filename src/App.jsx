@@ -1,8 +1,10 @@
+import Home from "./pages/Home"
+
 function App() {
 
   return (
     <>
-      <h1> توكلنا على لله </h1>  
+      <Home /> 
     </>
   )
 }
