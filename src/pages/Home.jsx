@@ -5,8 +5,10 @@ import FolderOpenOutlinedIcon from '@mui/icons-material/FolderOpenOutlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import WarningAmberOutlinedIcon from '@mui/icons-material/WarningAmberOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
+import InfoIcon from '@mui/icons-material/Info';
 import logo from "./../assets/DUMFlow_logo_transparent.png"
 import StatsOverview from "../components/StatsOverview";
+import CreateTaskForm from "../components/CreateTaskForm";
 
 const Home = () => {
   return (
@@ -38,6 +40,8 @@ const Home = () => {
                 <StatsOverview title={"Urgents"} icon={<WarningAmberOutlinedIcon/>} color={"red"}/>
                 <StatsOverview title={"Validés"} icon={<Inventory2OutlinedIcon/>} color={"green"}/>
             </div>
+
+            <CreateTaskForm icon={<InfoIcon sx={{fontSize : "15px"}} />}/>
         </div>
     </>
   )

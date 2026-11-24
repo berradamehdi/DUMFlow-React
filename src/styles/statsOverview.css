@@ -7,6 +7,12 @@
     border-radius: 20px;
 }
 
+@media (max-width:767px) {
+    .stat-card {
+        padding: 10px;
+    }
+}
+
 .stat-card-white {
     border: 1px solid var(--border-subtle);
 }
