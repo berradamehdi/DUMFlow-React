@@ -155,11 +155,11 @@
 }
 
 .task-list {
-    padding-block: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
+
 
 @media(max-width:767px) {
     .task-list {
@@ -175,6 +175,10 @@
     border-radius: 10px;
     display: flex;
     gap: 10px;
+}
+
+.task-list > .task-card-completed {
+    border-color: #1eff40;
 }
 
 .task-card > .task-card__checkbox {
@@ -303,6 +307,11 @@
     font-family: var(--font-sans);
     color: var(--text-primary);
     font-weight: 900;
+}
+
+.task-card__content > .task-card__title-completed {
+    color: var(--text-muted);
+    text-decoration: line-through;
 }
 
 @media (max-width:767px) {

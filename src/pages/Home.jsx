@@ -14,10 +14,6 @@ import TaskList from "../components/TaskList";
 
 const Home = () => {
     const [ tasks , setTasks ] = useState(() => JSON.parse(localStorage.getItem("tasks")) || [])
-    const [ task , setTask ] = useState(() => tasks.length > 0 ? tasks.length : 0)
-    const [ enCour , setEnCour ] = useState(() => tasks.length > 0 ? tasks.filter(element => element.completed == false).length : 0)
-    const [ urgent , setUrgent ] = useState(() => tasks.length > 0 ? tasks.filter(element => element.priority == "urgent").length : 0)
-    const [ full , setFull ] = useState(() => tasks.length > 0 ? tasks.filter(element => element.completed == true).length : 0)
 
     return (
         <>
@@ -34,24 +30,24 @@ const Home = () => {
                         <div className="desc-logo"> Organise tes DUM, BL, codes SH et démarches douanières en un seul endroit </div>
                     </div>
 
-                    <div className="header-search">
+                    {/* <div className="header-search">
                         <SearchIcon />
-                        <input type="text" placeholder="Rechercher par N° DUM, BL, Code SH ou note..."/>
-                    </div>
+                       <input type="text" placeholder="Rechercher par N° DUM, BL, Code SH ou note..."/>
+                    </div> */}
 
                     <div className="boder-bottom"></div>
                 </div>
 
                 <div className="stats-grid">
-                    <StatsOverview title={"Total Dossiers"} icon={<FolderOpenOutlinedIcon/>} color={"white"} value={task}/>
-                    <StatsOverview title={"En cours"} icon={<AccessTimeOutlinedIcon/>} color={"blue"} value={enCour}/>
-                    <StatsOverview title={"Urgents"} icon={<WarningAmberOutlinedIcon/>} color={"red"} value={urgent}/>
-                    <StatsOverview title={"Validés"} icon={<Inventory2OutlinedIcon/>} color={"green"} value={full}/>
+                    <StatsOverview title={"Total Dossiers"} icon={<FolderOpenOutlinedIcon/>} color={"white"} value={ tasks.length > 0 ? tasks.length : 0 } />
+                    <StatsOverview title={"En cours"} icon={<AccessTimeOutlinedIcon/>} color={"blue"} value={ tasks.length > 0 ? tasks.filter(element => element.completed == false).length : 0 }/>
+                    <StatsOverview title={"Urgents"} icon={<WarningAmberOutlinedIcon/>} color={"red"} value={ tasks.length > 0 ? tasks.filter(element => element.priority == "urgent").length : 0 }/>
+                    <StatsOverview title={"Validés"} icon={<Inventory2OutlinedIcon/>} color={"green"} value={ tasks.length > 0 ? tasks.filter(element => element.completed == true).length : 0 }/>
                 </div>
 
-                <CreateTaskForm icon={<InfoIcon sx={{fontSize : "15px"}}/>} tasks={tasks} setTasks={setTasks} setTask={setTask} setEnCour={setEnCour} setUrgent={setUrgent}/>
+                <CreateTaskForm icon={<InfoIcon sx={{fontSize : "15px"}}/>} tasks={tasks} setTasks={setTasks} />
 
-                <TaskList />
+                <TaskList tasks={tasks} setTasks={setTasks}/>
 
                 <div className="footer">
                     <div className="border-line"></div>

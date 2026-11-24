@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./../styles/createTaskForm.css"
 
-const CreateTaskForm = ({icon , tasks , setTasks , setTask, setEnCour , setUrgent}) => {
+const CreateTaskForm = ({icon , tasks , setTasks}) => {
       const date = new Date()
       const [ formData , setFormData ] = useState(
         {
@@ -86,7 +86,7 @@ const CreateTaskForm = ({icon , tasks , setTasks , setTask, setEnCour , setUrgen
           ...tasks,
           {
             title : formData.title,
-            referenceCode : formData.referenceCode,
+            referenceCode : formData.referenceCode.toUpperCase(),
             regime : formData.regime,
             priority : formData.priority,
             notes : formData.notes,
@@ -94,15 +94,12 @@ const CreateTaskForm = ({icon , tasks , setTasks , setTask, setEnCour , setUrgen
             date : formData.date
           }
         ]
-        setTasks([copy])
+        setTasks(copy)
+        setPriority("normal")
+        setShowNotes(false)
 
         localStorage.removeItem("tasks")  
         localStorage.setItem("tasks",JSON.stringify(copy))
-        
-        setTask(copy.length)
-
-        setEnCour(copy.filter(element => element.completed == false).length)
-        setUrgent(copy.filter(element => element.priority == "urgent").length)
 
         setFormData({
           title : "",
@@ -110,7 +107,8 @@ const CreateTaskForm = ({icon , tasks , setTasks , setTask, setEnCour , setUrgen
           regime : "import",
           priority : "normal",
           notes : "",
-          completed : false
+          completed : false,
+          date : new Date().toISOString().split("T")[0]
         })
       }
 
