@@ -58,8 +58,19 @@
         grid-template-columns: repeat(1,1fr);
     }
 }
+.input-box > span {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
-.input-box > .task-form__input {
+.input-box > span:first-child {
+    grid-column: span 8;
+}
+.input-box > span:last-child {
+    grid-column: span 4;
+}
+.input-box > span > .task-form__input {
     background-color: var(--bg-canvas);
     padding: 10px;
     outline: none;
@@ -69,18 +80,15 @@
     color: var(--text-primary);
     font-size: 14px;
     transition: .5s all;
+    width: 100%;
 }
 
-.input-box > .task-form__input:focus {
-    border-color: var(--accent-blue);
-}
-
-.input-box > .task-form__field--wide {
-    grid-column: span 8;
-}
-
-.input-box > .task-form__field--compact {
-    grid-column: span 4;
+.error {
+    padding: 5px 10px;
+    color: var(--accent-red);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    transition: .5s all;
 }
 
 @media (max-width:767px) {
@@ -88,12 +96,16 @@
         font-size: 12px;
     }
 
-    .input-box > .task-form__field--wide {
+    .input-box > span:first-child {
         grid-column: span 1;
     }
 
-    .input-box > .task-form__field--compact {
+    .input-box > span:last-child {
         grid-column: span 1;
+    }
+
+    .error {
+        font-size: 12px;
     }
 }
 
@@ -161,6 +173,17 @@
     cursor: pointer;
     font-size: 14px;
     font-family: var(--font-sans);
+    transition: .5s all;
+}
+
+.priority-toggle > .priority-toggle__btn-normal {
+    background-color: var(--accent-blue);
+    box-shadow: 0 0 5px var(--accent-blue);
+}
+
+.priority-toggle > .priority-toggle__btn-urgent {
+    background-color: var(--accent-red);
+    box-shadow: 0 0 5px var(--accent-red);
 }
 
 @media (max-width:767px) {
@@ -188,6 +211,17 @@
 
 .task-form__controls > .task-form__extra-btn:hover {
     color: var(--text-primary);
+}
+
+.task-form__controls > .task-form__extra-btn-blue {
+    background-color: var(--accent-blue-soft);
+    color: var(--accent-blue);
+    border: 1px solid var(--accent-blue);
+}
+
+.task-form__controls > .task-form__extra-btn-blue:hover {
+    color: var(--accent-blue);
+    box-shadow: 0 0 5px var(--accent-blue);
 }
 
 @media (max-width:767px) {

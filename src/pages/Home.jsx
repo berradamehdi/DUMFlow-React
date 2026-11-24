@@ -9,41 +9,44 @@ import InfoIcon from '@mui/icons-material/Info';
 import logo from "./../assets/DUMFlow_logo_transparent.png"
 import StatsOverview from "../components/StatsOverview";
 import CreateTaskForm from "../components/CreateTaskForm";
+import { useState } from "react";
 
 const Home = () => {
-  return (
-    <>
-        <div className="container">
-            <div className="app-header">
-                <div className="header-title">
-                    <div className="info-border">
-                        <LocalShippingOutlined />
-                        Espace Transitaire & Déclaration en Douane
+    const [ tasks , setTasks ] = useState([])
+
+    return (
+        <>
+            <div className="container">
+                <div className="app-header">
+                    <div className="header-title">
+                        <div className="info-border">
+                            <LocalShippingOutlined />
+                            Espace Transitaire & Déclaration en Douane
+                        </div>
+                        <div className="box-logo">
+                            <img src={logo} alt="logo"  className="logo"/>
+                        </div>
+                        <div className="desc-logo"> Organise tes DUM, BL, codes SH et démarches douanières en un seul endroit </div>
                     </div>
-                    <div className="box-logo">
-                        <img src={logo} alt="logo"  className="logo"/>
+
+                    <div className="header-search">
+                        <SearchIcon />
+                        <input type="text" placeholder="Rechercher par N° DUM, BL, Code SH ou note..."/>
                     </div>
-                    <div className="desc-logo"> Organise tes DUM, BL, codes SH et démarches douanières en un seul endroit </div>
+
+                    <div className="boder-bottom"></div>
                 </div>
 
-                <div className="header-search">
-                    <SearchIcon />
-                    <input type="text" placeholder="Rechercher par N° DUM, BL, Code SH ou note..."/>
+                <div className="stats-grid">
+                    <StatsOverview title={"Total Dossiers"} icon={<FolderOpenOutlinedIcon/>} color={"white"}/>
+                    <StatsOverview title={"En cours"} icon={<AccessTimeOutlinedIcon/>} color={"blue"}/>
+                    <StatsOverview title={"Urgents"} icon={<WarningAmberOutlinedIcon/>} color={"red"}/>
+                    <StatsOverview title={"Validés"} icon={<Inventory2OutlinedIcon/>} color={"green"}/>
                 </div>
 
-                <div className="boder-bottom"></div>
+                <CreateTaskForm icon={<InfoIcon sx={{fontSize : "15px"}}/>} tasks={tasks} setTasks={setTasks}/>
             </div>
-
-            <div className="stats-grid">
-                <StatsOverview title={"Total Dossiers"} icon={<FolderOpenOutlinedIcon/>} color={"white"}/>
-                <StatsOverview title={"En cours"} icon={<AccessTimeOutlinedIcon/>} color={"blue"}/>
-                <StatsOverview title={"Urgents"} icon={<WarningAmberOutlinedIcon/>} color={"red"}/>
-                <StatsOverview title={"Validés"} icon={<Inventory2OutlinedIcon/>} color={"green"}/>
-            </div>
-
-            <CreateTaskForm icon={<InfoIcon sx={{fontSize : "15px"}} />}/>
-        </div>
-    </>
+        </>
   )
 }
 
