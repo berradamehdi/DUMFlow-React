@@ -1,9 +1,16 @@
 import { useState } from "react"
 import "./../styles/taskList.css"
+import CheckIcon from '@mui/icons-material/Check';
+import TextSnippetIcon from '@mui/icons-material/TextSnippet';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const TaskList = () => {
     const [ statusFilter , setStatusFilter ] = useState("tous")
     const [ regimeFilter , setRegimeFilter ] = useState("tous")
+    const [ completed , setCompleted ] = useState(false)
+    const [ info , setInfo ] = useState(false)
+
     return (
         <>
             <div className="taskList">
@@ -33,6 +40,34 @@ const TaskList = () => {
                 <div className="task-empty">
                     <div className="message-title"> Aucun dossier trouvé </div>
                     <div className="message-desc"> Modifie tes filtres ou ajoute une nouvelle tâche douane ci-dessus. </div>
+                </div>
+
+                <div className="task-list">
+                    <div className="task-card">
+                        <button className={completed ? "task-card__checkbox task-card__checkbox-selected" : "task-card__checkbox"} onClick={() => setCompleted(!completed)}> { completed ? <CheckIcon sx={{fontSize:"12px"}}/> : "" } </button>
+                        
+                        <div className="task-card__content">
+                            <div className="task-card__meta">
+                                <div className="task-card__badges">
+                                    <div className="task-card__badge"> DUM-6265 </div>
+                                    <div className="task-card__badge--regime"> import </div>
+                                    <div className="task-card__badge--urgent"> Urgent </div>
+                                </div>
+                                <div className="date"> 24/11/2026 </div>
+                            </div>
+
+                            <span className="task-card__title"> Saisie DUM sur système BADR & contrôle valeur </span>
+
+                            <button className="task-card__details-toggle" onClick={() => setInfo(!info)}> <TextSnippetIcon sx={{fontSize:"16px",color:"var(--accent-blue)"}}/> Voir les infos enregistrées </button>
+
+                            {info && <div className="task-card__notes"> Client: AtlasTextiles SARL | Code SH: 5208.32... </div>}
+                        </div>
+
+                        <div className="btn-op">
+                            <button className="btn btn-edit"> <EditIcon sx={{fontSize:"14px"}}/> </button>
+                            <button className="btn btn-delete"> <DeleteIcon sx={{fontSize:"14px"}}/> </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
