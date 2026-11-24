@@ -13,6 +13,7 @@
 .filter-bar > .task-filters__top {
     display: flex;
     justify-content: space-between;
+    gap: 2px;
     align-items: center;
 }
 
@@ -68,10 +69,10 @@
 
 @media(max-width:767px){
     .task-filters__tabs > .task-filters__tab {
-        font-size: 12px;
+        font-size: 10px;
     }
     .task-filters__count {
-        font-size: 12px;
+        font-size: 9px;
     }
 }
 
@@ -79,7 +80,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    width: max-content;
 }
 
 .task-filters__regimes > .task-filters__chip {
@@ -104,4 +104,49 @@
     color: var(--accent-blue);
     border: 1px solid var(--accent-blue);
     background-color: var(--accent-blue-soft);
+}
+
+@media(max-width:767px) {
+    .task-filters__regimes > .task-filters__chip {
+        font-size: 10px;
+    }
+}
+
+.task-empty {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 40px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.task-empty > .message-title {
+    text-align: center;
+    font-family: var(--font-sans);
+    font-weight: 900;
+    font-size: 14px;
+    color: var(--text-primary);
+    text-transform: capitalize;
+}
+
+.task-empty > .message-desc {
+    text-align: center;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+@media(max-width:767px) {
+    .task-empty {
+        padding: 20px;
+    }
+    .task-empty > .message-title {
+        font-size: 12px;
+    }
+    .task-empty > .message-desc {
+        font-size: 10px;
+    }
 }

@@ -108,3 +108,43 @@
         grid-template-columns: repeat(2,1fr);
     }
 }
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer > .border-line {
+    height: 2px;
+    background-color: var(--accent-blue-soft);
+}
+
+.footer > .info {
+    text-align: center;
+    font-size: 14px;
+    font-family: var(--font-sans);
+    font-weight: 900;
+    color: var(--text-secondary);
+}
+
+.footer > .by {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-weight: 900;
+    font-size: 14px;
+    background: linear-gradient(90deg,var(--accent-blue) 0%,var(--accent-red) 100%);
+    background-clip: text;
+    color: transparent;
+}
+
+@media(max-width:767px) {
+    .footer > .info {
+        font-size: 12px;
+    }
+
+    .footer > .by {
+        font-size: 12px;
+    }
+}

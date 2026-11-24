@@ -29,6 +29,11 @@ const TaskList = () => {
                         <button className={regimeFilter === "documentation" ? "task-filters__chip task-filters__chip--active" : "task-filters__chip"} onClick={() => setRegimeFilter("documentation")}> Documentation </button>
                     </div>
                 </div>
+
+                <div className="task-empty">
+                    <div className="message-title"> Aucun dossier trouvé </div>
+                    <div className="message-desc"> Modifie tes filtres ou ajoute une nouvelle tâche douane ci-dessus. </div>
+                </div>
             </div>
         </>
     )

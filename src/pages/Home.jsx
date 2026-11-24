@@ -48,6 +48,12 @@ const Home = () => {
                 <CreateTaskForm icon={<InfoIcon sx={{fontSize : "15px"}}/>} tasks={tasks} setTasks={setTasks}/>
 
                 <TaskList />
+
+                <div className="footer">
+                    <div className="border-line"></div>
+                    <div className="info"> DUMFlow — Conçu pour le suivi quotidien des déclarations en douane & transit • Sauvegarde locale automatique </div>
+                    <div className="by"> © 2026 Berrada Mehdi · V0.1.0 </div>
+                </div>
             </div>
         </>
   )
