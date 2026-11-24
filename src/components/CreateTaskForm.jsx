@@ -140,7 +140,7 @@ const CreateTaskForm = ({icon , tasks , setTasks}) => {
                   <option value="export"> Régime : Export </option>
                   <option value="at"> Régime : AT (Adm. Temp.) </option>
                   <option value="mainlevée"> Étape : Mainlevée </option>
-                  <option value="docs"> Docs / Factures </option>
+                  <option value="documentation"> Docs / Factures </option>
                 </select>
 
                 <div className="priority-toggle">

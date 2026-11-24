@@ -10,6 +10,7 @@ import logo from "./../assets/DUMFlow_logo_transparent.png"
 import StatsOverview from "../components/StatsOverview";
 import CreateTaskForm from "../components/CreateTaskForm";
 import { useState } from "react";
+import TaskList from "../components/TaskList";
 
 const Home = () => {
     const [ tasks , setTasks ] = useState([])
@@ -45,6 +46,8 @@ const Home = () => {
                 </div>
 
                 <CreateTaskForm icon={<InfoIcon sx={{fontSize : "15px"}}/>} tasks={tasks} setTasks={setTasks}/>
+
+                <TaskList />
             </div>
         </>
   )
