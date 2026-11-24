@@ -28,6 +28,9 @@
 .task-filters__tabs > .task-filters__tab {
     padding: 5px 10px;
     border-radius: 5px;
+    outline: none;
+    border: none;
+    background: none;
     font-family: var(--font-sans);
     font-weight: 900;
     font-size: 14px;

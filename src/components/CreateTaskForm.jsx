@@ -1,7 +1,8 @@
 import { useState } from "react"
 import "./../styles/createTaskForm.css"
 
-const CreateTaskForm = ({icon , tasks , setTasks}) => {
+const CreateTaskForm = ({icon , tasks , setTasks , setTask, setEnCour , setUrgent}) => {
+      const date = new Date()
       const [ formData , setFormData ] = useState(
         {
             title : "",
@@ -9,7 +10,8 @@ const CreateTaskForm = ({icon , tasks , setTasks}) => {
             regime : "import",
             priority : "normal",
             notes : "",
-            completed : false
+            completed : false,
+            date: new Date().toISOString().split("T")[0]
         }
       )
 
@@ -80,7 +82,7 @@ const CreateTaskForm = ({icon , tasks , setTasks}) => {
           return
         }
 
-        setTasks([
+        const copy = [
           ...tasks,
           {
             title : formData.title,
@@ -88,9 +90,19 @@ const CreateTaskForm = ({icon , tasks , setTasks}) => {
             regime : formData.regime,
             priority : formData.priority,
             notes : formData.notes,
-            completed : formData.completed 
+            completed : formData.completed,
+            date : formData.date
           }
-        ])
+        ]
+        setTasks([copy])
+
+        localStorage.removeItem("tasks")  
+        localStorage.setItem("tasks",JSON.stringify(copy))
+        
+        setTask(copy.length)
+
+        setEnCour(copy.filter(element => element.completed == false).length)
+        setUrgent(copy.filter(element => element.priority == "urgent").length)
 
         setFormData({
           title : "",
@@ -164,9 +176,8 @@ const CreateTaskForm = ({icon , tasks , setTasks}) => {
 
             {showNotes && <div className="border-line"></div>}
 
-            {showNotes && <textarea name="" className="info-area" placeholder="Notes importantes à garder : Code SH, nom du client, numéro conteneur, contact inspecteur ou remarque BADR..." onChange={(e) => setFormData({...formData,notes:e.target.value})}>
-                            {formData.notes}
-                          </textarea>
+            {showNotes && <textarea name="" className="info-area" placeholder="Notes importantes à garder : Code SH, nom du client, numéro conteneur, contact inspecteur ou remarque BADR..." value={formData.notes} onChange={(e) => setFormData({...formData,notes:e.target.value})}>
+            </textarea>
             }
           </div>
         </>

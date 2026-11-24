@@ -141,10 +141,10 @@
 
 @media(max-width:767px) {
     .footer > .info {
-        font-size: 12px;
+        font-size: 8px;
     }
 
     .footer > .by {
-        font-size: 12px;
+        font-size: 8px;
     }
 }

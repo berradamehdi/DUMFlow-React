@@ -17,10 +17,10 @@ const TaskList = () => {
                 <div className="filter-bar">
                     <div className="task-filters__top">
                         <div className="task-filters__tabs">
-                            <buttom className={statusFilter === "tous" ? "task-filters__tab task-filters__tab--active" : "task-filters__tab"} onClick={() => setStatusFilter("tous")}> Tous </buttom>
-                            <buttom className={statusFilter === "en cours" ? "task-filters__tab task-filters__tab--active" : "task-filters__tab"} onClick={() => setStatusFilter("en cours")}> En Cours </buttom>
-                            <buttom className={statusFilter === "urgents" ? "task-filters__tab task-filters__tab--active-red" : "task-filters__tab"} onClick={() => setStatusFilter("urgents")}> Urgents </buttom>
-                            <buttom className={statusFilter === "terminés" ? "task-filters__tab task-filters__tab--active-green" : "task-filters__tab"} onClick={() => setStatusFilter("terminés")}> Terminés </buttom>
+                            <button className={statusFilter === "tous" ? "task-filters__tab task-filters__tab--active" : "task-filters__tab"} onClick={() => setStatusFilter("tous")}> Tous </button>
+                            <button className={statusFilter === "en cours" ? "task-filters__tab task-filters__tab--active" : "task-filters__tab"} onClick={() => setStatusFilter("en cours")}> En Cours </button>
+                            <button className={statusFilter === "urgents" ? "task-filters__tab task-filters__tab--active-red" : "task-filters__tab"} onClick={() => setStatusFilter("urgents")}> Urgents </button>
+                            <button className={statusFilter === "terminés" ? "task-filters__tab task-filters__tab--active-green" : "task-filters__tab"} onClick={() => setStatusFilter("terminés")}> Terminés </button>
                         </div>
                         <div className="task-filters__count">
                             <span className="value"> 0 </span> dossiers affichés
